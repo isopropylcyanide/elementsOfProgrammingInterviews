@@ -1,5 +1,7 @@
 package com.learning.eopi.stacks;
 
+import lombok.AllArgsConstructor;
+
 import java.util.Stack;
 
 /**
@@ -14,13 +16,8 @@ import java.util.Stack;
  */
 public class MaxStack {
 
-    private Stack<Integer> stack;
-    private Stack<MaxCount> maxCountStack;
-
-    MaxStack() {
-        this.stack = new Stack<>();
-        this.maxCountStack = new Stack<>();
-    }
+    private final Stack<Integer> stack = new Stack<>();
+    private final Stack<MaxCount> maxCountStack = new Stack<>();
 
     void push(int x) {
         stack.push(x);
@@ -58,14 +55,10 @@ public class MaxStack {
         return maxCountStack.peek().val;
     }
 
+    @AllArgsConstructor
     private class MaxCount {
         int val;
         int count;
-
-        MaxCount(int val, int count) {
-            this.val = val;
-            this.count = count;
-        }
 
         @Override
         public String toString() {

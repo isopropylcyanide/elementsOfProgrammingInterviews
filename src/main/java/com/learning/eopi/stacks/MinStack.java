@@ -1,5 +1,7 @@
 package com.learning.eopi.stacks;
 
+import lombok.AllArgsConstructor;
+
 import java.util.Stack;
 
 /**
@@ -14,18 +16,14 @@ import java.util.Stack;
  */
 public class MinStack {
 
-    private Stack<Integer> stack;
-    private Stack<MinCount> minCountStack;
-
-    MinStack() {
-        this.stack = new Stack<>();
-        this.minCountStack = new Stack<>();
-    }
+    private final Stack<Integer> stack = new Stack<>();
+    private final Stack<MinCount> minCountStack = new Stack<>();
 
     void push(int x) {
         stack.push(x);
         if (minCountStack.empty()) {
             minCountStack.push(new MinCount(x, 1));
+
         } else {
             MinCount minSoFar = minCountStack.peek();
             if (minSoFar.val == x) {
@@ -58,14 +56,10 @@ public class MinStack {
         return minCountStack.peek().val;
     }
 
+    @AllArgsConstructor
     private class MinCount {
         int val;
         int count;
-
-        MinCount(int val, int count) {
-            this.val = val;
-            this.count = count;
-        }
 
         @Override
         public String toString() {

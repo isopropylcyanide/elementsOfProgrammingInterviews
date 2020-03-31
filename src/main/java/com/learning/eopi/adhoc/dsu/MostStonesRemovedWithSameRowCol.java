@@ -12,6 +12,8 @@ package com.learning.eopi.adhoc.dsu;
 public class MostStonesRemovedWithSameRowCol {
 
     public int removeStones(int[][] stones) {
+
+        //create a visited set
         return 0;
     }
 
